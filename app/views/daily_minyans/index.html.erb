@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Daily Minyans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @daily_minyans.each do |daily_minyan| %>
+      <tr>
+        <td><%= link_to 'Show', daily_minyan %></td>
+        <td><%= link_to 'Edit', edit_daily_minyan_path(daily_minyan) %></td>
+        <td><%= link_to 'Destroy', daily_minyan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Daily Minyan', new_daily_minyan_path %>

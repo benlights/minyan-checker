@@ -1,0 +1,2 @@
+module DailyMinyansHelper
+end

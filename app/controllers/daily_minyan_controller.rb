@@ -1,2 +1,0 @@
-class DailyMinyanController < ApplicationController
-end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @minyan.time %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @minyan.location %>
+</p>
+
+<p>
+  <strong>Notification time:</strong>
+  <%= @minyan.notification_time %>
+</p>
+
+<%= link_to 'Edit', edit_minyan_path(@minyan) %> |
+<%= link_to 'Back', minyans_path %>

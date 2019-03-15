@@ -1,0 +1,17 @@
+<%= form_with(model: daily_minyan, local: true) do |form| %>
+  <% if daily_minyan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(daily_minyan.errors.count, "error") %> prohibited this daily_minyan from being saved:</h2>
+
+      <ul>
+      <% daily_minyan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

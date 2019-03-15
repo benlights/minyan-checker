@@ -13,6 +13,9 @@
 ActiveRecord::Schema.define(version: 2019_03_15_191455) do
 
   create_table "daily_minyans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "minyan_id"
+    t.time "time"
+    t.index ["minyan_id"], name: "index_daily_minyans_on_minyan_id"
   end
 
   create_table "daily_minyans_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -30,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_03_15_191455) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users_tables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "minyan_id"
     t.string "contact_method"
     t.string "contact_info", null: false
