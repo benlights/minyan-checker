@@ -47,3 +47,8 @@ bower.json
 
 # Ignore node_modules
 node_modules/
+
+config/config.yml
+config/database.yml
+config/secrets.yml
+config/environment_variables.yml

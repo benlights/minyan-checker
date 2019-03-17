@@ -10,7 +10,6 @@ class MinyansController < ApplicationController
   # GET /minyans/1
   # GET /minyans/1.json
   def show
-    @minayn = Minyan.find(params[:id])
     @users = @minyan.users
   end
 

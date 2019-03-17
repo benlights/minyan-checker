@@ -1,24 +1,25 @@
 class MinyanMailer < ActionMailer::Base
-  default from: 'from@example.com'
-  layout 'mailer'
+
+  default from: 'minyan.checker@gmail.com'
 
  self.smtp_settings = {  
   :enable_starttls_auto => true,
   :address => 'smtp.gmail.com',
   :port => 587,
-  :domain => 'nofraud.com',
+  # :domain => 'nofraud.com',
   :authentication => :plain,
-  :user_name => 'review@nofraud.com',
-  :password => ENV['REVIEW_GMAIL_PASS']}
+  :user_name => 'minyan.checker@gmail.com',
+  :password => ENV['GMAIL_PASS']}
 
 
-  def hold_email(user)
-    @user = user
-    @minyan = Minyan.find_by_id(user.minyan_id)
+  def reminder_email(link)
+  	@link = link
+    @user = User.find(@link.user_id)
+    @minyan = Minyan.find_by_id(@user.minyan_id)
     @name = @user.name
-    @url = "https://portal.nofraud.com/transaction/#{transaction.url}"
-    to = user.contact_info
+    @url = "https://localhost:3000/daily_minyan_links/yes?link=#{@link.link}"
+    to = @user.contact_info
     
-    mail(:to => to, :subject => "Will you be by the Minyan - #{minyan.name}")
+    mail(:to => to, :subject => "Will you be by the Minyan - #{@minyan.name}")
   end
 end
