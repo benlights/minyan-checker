@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :minyans
-  resources :daily_minyan_users
-  resources :daily_minyans
-  resources :users
+  resources :minyans do
+  	resources :users
+  end
+  resources :daily_minyan_links
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  
 end

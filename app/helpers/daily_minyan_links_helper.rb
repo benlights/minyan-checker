@@ -1,0 +1,2 @@
+module DailyMinyanLinksHelper
+end

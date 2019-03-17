@@ -1,4 +1,7 @@
 class User < ApplicationRecord
-	has_many :minyans
-	has_many :daily_minyans, through: :daily_minyan_users
+	belongs_to :minyan
+
+	def create_link
+		DailyMinyanLink.create_link(self.id, self.minyan.id)
+	end
 end

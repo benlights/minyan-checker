@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :time %>
-    <%= form.text_field :time %>
+    <%= form.time_select :time, {ampm: true}  %>
   </div>
 
   <div class="field">
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :notification_time %>
-    <%= form.text_field :notification_time %>
+    <%= form.time_select :notification_time, {ampm: true} %>
   </div>
 
   <div class="actions">

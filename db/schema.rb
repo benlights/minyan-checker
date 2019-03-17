@@ -12,19 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2019_03_15_191455) do
 
-  create_table "daily_minyans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "daily_minyan_links", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "minyan_id"
-    t.time "time"
-    t.index ["minyan_id"], name: "index_daily_minyans_on_minyan_id"
-  end
-
-  create_table "daily_minyans_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "daily_minyan_id"
     t.bigint "user_id"
     t.string "link"
     t.boolean "joining", default: false
-    t.index ["daily_minyan_id"], name: "index_daily_minyans_users_on_daily_minyan_id"
-    t.index ["user_id"], name: "index_daily_minyans_users_on_user_id"
+    t.date "date"
+    t.index ["minyan_id"], name: "index_daily_minyan_links_on_minyan_id"
+    t.index ["user_id"], name: "index_daily_minyan_links_on_user_id"
   end
 
   create_table "minyans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
