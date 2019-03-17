@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Time</th>
       <th>Location</th>
       <th>Notification time</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @minyans.each do |minyan| %>
       <tr>
+        <td><%= minyan.name %></td>
         <td><%= minyan.time %></td>
         <td><%= minyan.location %></td>
         <td><%= minyan.notification_time %></td>

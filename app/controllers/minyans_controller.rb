@@ -69,6 +69,6 @@ class MinyansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def minyan_params
-      params.require(:minyan).permit(:time, :location, :notification_time)
+      params.require(:minyan).permit(:name, :time, :location, :notification_time)
     end
 end

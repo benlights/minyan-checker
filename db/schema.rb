@@ -19,13 +19,16 @@ ActiveRecord::Schema.define(version: 2019_03_15_191455) do
   end
 
   create_table "daily_minyans_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "daily_minyan_id"
-    t.integer "user_id"
+    t.bigint "daily_minyan_id"
+    t.bigint "user_id"
     t.string "link"
     t.boolean "joining", default: false
+    t.index ["daily_minyan_id"], name: "index_daily_minyans_users_on_daily_minyan_id"
+    t.index ["user_id"], name: "index_daily_minyans_users_on_user_id"
   end
 
   create_table "minyans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.time "time"
     t.string "location"
     t.time "notification_time"
