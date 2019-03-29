@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'daily_minyan_links/yes/:link' => 'daily_minyan_links#yes'
   resources :minyans do
   	resources :users
   end

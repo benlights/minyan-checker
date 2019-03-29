@@ -1,6 +1,13 @@
 class DailyMinyanLinksController < ApplicationController
   before_action :set_daily_minyan_link, only: [:show, :edit, :update, :destroy]
 
+  def yes
+    @link = DailyMinyanLink.find_by(link: params[:link])
+    @link.update(joining: true)
+    if @link.save
+      render
+    end
+  end
   # GET /daily_minyan_links
   # GET /daily_minyan_links.json
   def index
@@ -20,6 +27,7 @@ class DailyMinyanLinksController < ApplicationController
   # GET /daily_minyan_links/1/edit
   def edit
   end
+
 
   # POST /daily_minyan_links
   # POST /daily_minyan_links.json

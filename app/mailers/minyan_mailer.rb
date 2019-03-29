@@ -17,9 +17,20 @@ class MinyanMailer < ActionMailer::Base
     @user = User.find(@link.user_id)
     @minyan = Minyan.find_by_id(@user.minyan_id)
     @name = @user.name
-    @url = "https://localhost:3000/daily_minyan_links/yes?link=#{@link.link}"
+    @url = "localhost:3000/daily_minyan_links/yes/#{@link.link}"
     to = @user.contact_info
     
     mail(:to => to, :subject => "Will you be by the Minyan - #{@minyan.name}")
   end
+
+  def minyan_confirmation(link)
+    @link = link
+    @user = User.find(@link.user_id)
+    @minyan = Minyan.find_by_id(@user.minyan_id)
+    @name = @user.name
+  
+    to = @user.contact_info
+    mail(:to => to, :subject => "Will you be by the Minyan - #{@minyan.name}")
+  end
+
 end

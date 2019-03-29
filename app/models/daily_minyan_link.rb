@@ -15,6 +15,7 @@ class DailyMinyanLink < ApplicationRecord
 		link.generate_link
 		link.set_date
 		link.save
+		return link
 	end
-
+	
 end
