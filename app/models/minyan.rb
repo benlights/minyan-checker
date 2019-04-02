@@ -1,12 +1,14 @@
 class Minyan < ApplicationRecord
 	has_many :users
 	has_many :daily_minyan_links
+	has_many :daily_minyans
 
 	def run_minyan
 		self.users.each { |u| 
 			link = u.create_link
-			puts link
-			MinyanMailer.reminder_email(link).deliver! 
+			if(!link.notified)
+				MinyanMailer.reminder_email(link).deliver! 
+			end
 		}
 	end
 

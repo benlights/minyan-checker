@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_15_191455) do
+ActiveRecord::Schema.define(version: 2019_04_02_025150) do
 
   create_table "daily_minyan_links", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "minyan_id"
@@ -18,8 +18,19 @@ ActiveRecord::Schema.define(version: 2019_03_15_191455) do
     t.string "link"
     t.boolean "joining", default: false
     t.date "date"
+    t.boolean "notified", default: false
     t.index ["minyan_id"], name: "index_daily_minyan_links_on_minyan_id"
     t.index ["user_id"], name: "index_daily_minyan_links_on_user_id"
+  end
+
+  create_table "daily_minyans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "minyan_id"
+    t.date "date"
+    t.boolean "happening"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "notified", default: false
+    t.index ["minyan_id"], name: "index_daily_minyans_on_minyan_id"
   end
 
   create_table "minyans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -40,4 +51,5 @@ ActiveRecord::Schema.define(version: 2019_03_15_191455) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "daily_minyans", "minyans"
 end
